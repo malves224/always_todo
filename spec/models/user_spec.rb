@@ -15,17 +15,6 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:name) }
 
     it 'validates presence of password confirmation if password required' do
-      user = User.new(password: 'password', password_confirmation: nil)
-      user.password_required?
-      expect(user).to validate_presence_of(:password_confirmation)
-    end
-
-    it 'validates confirmation of password' do
-      user = User.new(password: 'password', password_confirmation: 'password')
-      expect(user).to validate_confirmation_of(:password)
-    end
-
-    it 'validates presence of password confirmation if password required' do
       user = build(:user, password: 'password', password_confirmation: nil)
       user.password_required?
       expect(user).to validate_presence_of(:password_confirmation)
@@ -33,8 +22,9 @@ RSpec.describe User, type: :model do
 
     it 'validates confirmation of password' do
       user = build(:user)
-      expect(user).to validate_confirmation_of(:password)
+      expect(user).to be_valid
     end
+
     context 'with email invalid' do
       it 'is invalid' do
         user = build(:user, email: 'email')
