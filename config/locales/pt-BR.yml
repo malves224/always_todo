@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        blank: "não pode ficar em branco"
+        too_short: "é muito curto (mínimo de %{count} caracteres)"
+        taken: "já foi utilizado"
+      models:
+        user:
+          attributes:
+            email:
+              taken: "Este e-mail já está cadastrado"
+              invalid: "Formato de e-mail inválido"
+            password:
+              too_short: "deve ter no mínimo %{count} caracteres."
+              confirmation: "A senha e a confirmação de senha não coincidem"
