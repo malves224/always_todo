@@ -14,7 +14,7 @@ RSpec.describe 'Tasks', type: :request do
       get '/tasks', headers: headers
       expect(response).to have_http_status(:ok)
       expect(JSON.parse(response.body)).to eq([task.as_json])
-    end
+  end
   end
 
   describe 'GET /tasks/:id' do
@@ -60,7 +60,7 @@ RSpec.describe 'Tasks', type: :request do
       it 'returns an unprocessable entity status' do
         post '/tasks', params: { task: { title: '' } }, headers: headers
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(JSON.parse(response.body)['errors'][0]).to eq('Title O título da tarefa é obrigatório')
+        expect(JSON.parse(response.body)['errors'][0]).to eq('O título da tarefa é obrigatório')
       end
     end
   end
@@ -89,7 +89,7 @@ RSpec.describe 'Tasks', type: :request do
       it 'returns an unprocessable entity status' do
         put "/tasks/#{task.id}", params: { task: { title: '' } }, headers: headers
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(JSON.parse(response.body)['errors'][0]).to eq('Title O título da tarefa é obrigatório')
+        expect(JSON.parse(response.body)['errors'][0]).to eq('O título da tarefa é obrigatório')
       end
     end
 
