@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     if task.save
       render json: task, status: :created
     else
-      render json: { errors: task.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: task.errors.messages.values.flatten }, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       render json: @task, status: :ok
     else
-      render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @task.errors.messages.values.flatten }, status: :unprocessable_entity
     end
   end
 

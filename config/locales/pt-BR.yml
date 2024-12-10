@@ -1,7 +1,7 @@
 pt-BR:
   login_controller:
     errors:
-      invalid_login: "Login ou senha inválidos"
+      invalid_login: "E-mail ou senha incorretos"
   tasks_controller:
     errors:
       unpermitted_task: "Você não tem permissão para modificar essa tarefa"
@@ -10,7 +10,7 @@ pt-BR:
       messages:
         blank: "não pode ficar em branco"
         too_short: "é muito curto (mínimo de %{count} caracteres)"
-        taken: "já foi utilizado"
+        taken: "já foi utiliszado"
       models:
         user:
           attributes:
@@ -18,7 +18,10 @@ pt-BR:
               taken: "Este e-mail já está cadastrado"
               invalid: "Formato de e-mail inválido"
             password:
-              too_short: "deve ter no mínimo %{count} caracteres."
+              blank: "Senha não pode ficar em branco"
+              too_short: "Senha deve ter no mínimo %{count} caracteres."
+            password_confirmation:
+              blank: "Confirmação de senha não pode ficar em branco"
               confirmation: "A senha e a confirmação de senha não coincidem"
         task:
           record_not_found: "A tarefa não encontrada"
@@ -28,3 +31,5 @@ pt-BR:
               too_short: "O titulo deve ter pelo menos %{count} caracteres"
             status:
               inclusion: "Status da tarefa invalido"
+            description:
+              too_long: "A descrição não pode ter mais que %{count} caracteres"

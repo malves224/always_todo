@@ -4,11 +4,11 @@ class UsersController < ApplicationController
     if user.save
       render json: user, status: :created
     else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: user.errors.messages.values.flatten }, status: :unprocessable_entity
     end
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.permit(:name, :email, :password, :password_confirmation)
   end
 end
