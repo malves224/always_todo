@@ -5,4 +5,9 @@ class Task < ApplicationRecord
 
   enum status: { pending: 'pending', done: 'done' }
   validates :status, inclusion: { in: statuses.keys }
+  default_scope do
+    raise 'Current.user is not set' unless Current.user
+
+    where(user_id: Current.user)
+  end
 end
