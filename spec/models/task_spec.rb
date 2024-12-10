@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
+  before do
+    set_current_user
+  end
+
   describe 'associations' do
     it { should belong_to(:user) }
   end
