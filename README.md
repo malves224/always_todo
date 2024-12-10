@@ -22,5 +22,9 @@ O projeto possui setup pronto pra rodar localmente com docker-compose:
   http://localhost:5173
   ```
 
+## Testes Unitários
+O código possui uma cobertura significativa de testes unitários, garantindo a qualidade e a confiabilidade do aplicativo:
+![Testes Unitários](../test.png)
+
 ## FRONTEND
 Repositorio para frontend: https://github.com/malves224/always_todo_front
