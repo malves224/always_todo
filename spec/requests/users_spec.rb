@@ -4,23 +4,19 @@ RSpec.describe "Users", type: :request do
   describe "POST /create" do
     let(:valid_attributes) do
       {
-        user: {
-          email: "test@example.com",
-          password: "password",
-          password_confirmation: "password",
-          name: "Test User"
-        }
+        email: "test@example.com",
+        password: "password",
+        password_confirmation: "password",
+        name: "Test User"
       }
     end
 
     let(:invalid_attributes) do
       {
-        user: {
-          email: "invalid",
-          password: "short",
-          password_confirmation: "short",
-          name: ""
-        }
+        email: "invalid",
+        password: "short",
+        password_confirmation: "short",
+        name: ""
       }
     end
 
@@ -48,7 +44,7 @@ RSpec.describe "Users", type: :request do
         post users_path, params: invalid_attributes
         expect(response).to have_http_status(:unprocessable_entity)
         body = JSON.parse(response.body)
-        expect(body["errors"][0]).to include('Email Formato de e-mail inválid')
+        expect(body["errors"][0]).to include('Formato de e-mail inválid')
       end
     end
   end
