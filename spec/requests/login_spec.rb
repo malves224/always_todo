@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Logins", type: :request do
-  let(:params) { { email: 'matheus@email.com', password: '123456' } }
-  let!(:user) { create(:user, email: 'matheus@email.com', password: '123456',) }
+  let(:params) { { email: 'matheus@email.com', password: 'password' } }
+  let!(:user) { create(:user, email: 'matheus@email.com') }
 
   describe 'POST /login' do
     it 'returns a 200 status code with token' do
