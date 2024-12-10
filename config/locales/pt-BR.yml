@@ -1,4 +1,7 @@
 pt-BR:
+  login_controller:
+    errors:
+      invalid_login: "Login ou senha inválidos"
   activerecord:
     errors:
       messages:
