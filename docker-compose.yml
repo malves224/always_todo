@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  web:
+    image: malves224/always_todo_front:latest
+    ports:
+      - "5173:5173"
+  backend:
+    build: .
+    command: ["sh", "-c", "rails db:create && rails db:migrate && rails s -b 0.0.0.0"]
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app_backend
+volumes:
+  db_data:
