@@ -2,6 +2,9 @@ pt-BR:
   login_controller:
     errors:
       invalid_login: "Login ou senha inválidos"
+  tasks_controller:
+    errors:
+      unpermitted_task: "Você não tem permissão para modificar essa tarefa"
   activerecord:
     errors:
       messages:
@@ -17,3 +20,11 @@ pt-BR:
             password:
               too_short: "deve ter no mínimo %{count} caracteres."
               confirmation: "A senha e a confirmação de senha não coincidem"
+        task:
+          record_not_found: "A tarefa não encontrada"
+          attributes:
+            title:
+              blank: "O título da tarefa é obrigatório"
+              too_short: "O titulo deve ter pelo menos %{count} caracteres"
+            status:
+              inclusion: "Status da tarefa invalido"
