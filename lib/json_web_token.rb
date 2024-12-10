@@ -1,5 +1,5 @@
 class JsonWebToken
-  SECRET_KEY = ENV['jwt_secret']
+  SECRET_KEY = ENV['jwt_secret'] || 'secret'
 
   def self.encode(payload, exp = 99_999.hours.from_now)
     payload[:exp] = exp.to_i
